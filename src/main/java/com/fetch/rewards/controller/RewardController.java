@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -37,9 +38,11 @@ public class RewardController {
     @GetMapping("/{id}/points")
     public ResponseEntity<Map<String, String>> getPoints(@PathVariable UUID id) {
         // Fetch the receipt by ID from the database
-        Receipt receipt = rewardService.getReceiptById(id);
+        Optional<Receipt> receiptOptional = Optional.ofNullable(rewardService.getReceiptById(id));
+        Receipt receipt = receiptOptional
+                .orElseThrow(() -> new ReceiptNotFoundException("No receipt found for that ID: " + id));;
         if (receipt == null) {
-            throw new ReceiptNotFoundException("Receipt with ID " + id + " not found.");
+            throw new ReceiptNotFoundException("No receipt found for that ID:" + id);
         }
 
         // Calculate points for the receipt
