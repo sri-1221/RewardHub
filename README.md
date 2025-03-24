@@ -45,7 +45,7 @@ This web service processes a JSON receipt and returns a generated ID. The ID can
 
 ```bash
 git clone https://github.com/sri-1221/RewardHub.git
-cd sri-1221/RewardHub
+cd RewardHub
 ```
 Ensure Docker Engine is Running
 Ensure that the Docker Engine is up and running on your system before proceeding.
