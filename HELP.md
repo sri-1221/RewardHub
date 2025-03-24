@@ -105,6 +105,7 @@ You should see the container running with the `my-spring-boot-app` image, and po
 ### a) Process Receipt
 
 Send a `POST` request to `http://localhost:8080/receipts/process` with the following JSON body:
+(Example POST request using tools like Postman)
 
 ```json
 {
@@ -152,7 +153,7 @@ This will return a JSON response with the receipt ID:
 
 Send a `GET` request to `http://localhost:8080/receipts/{id}/points`, replacing `{id}` with the receipt ID you received from the previous step.
 
-Example:
+(Example GET request using tools like Postman):
 
 ```bash
 http://localhost:8080/receipts/2940c484-1d48-4767-b0dc-bfd8bac6a1fa/points
